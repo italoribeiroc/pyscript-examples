@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    <py-title>Jogo de adivinhar</py-title>
+    <div>
+        <py-box>
+            <p>Adivinhe o número aleatorio de 0 a 10 </p>
+            <py-inputbox id="entrada"></py-inputbox>
+            <py-button id="guess_bttn" label="Adivinhe" pys-onClick="guess"></py-button>
+        </py-box>
+        <br>
+        <py-box>
+            <strong>Resultado:</strong>
+            <py-button id="restart_bttn" label="Recomeçar" pys-onClick="restart"></py-button>
+        </py-box>
+        <py-box>
+            <p id="result"></p>
+        </py-box>
+    </div>
+    <py-script>
+        import random
+
+        def guess(event):
+            guess_number = Element('entrada')
+            if int(guess_number.element.value) != random_Number:
+                pyscript.write('result', f'Não acertou, não é {guess_number.value}')
+            else:
+                pyscript.write('result', f'Acertou, o numero é {random_Number}!')
+                
+        def restart(event):
+            resultado = Element('result').clear()
+            global random_Number
+            random_Number = random.randint(0, 10)
+
+        random_Number = random.randint(0, 10)
+    </py-script>
+</body>
+</html>
